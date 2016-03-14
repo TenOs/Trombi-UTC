@@ -1,0 +1,11 @@
+
+.vertical-center {
+  @include vertical-center;
+}
+
+.top-search {
+  background-color: #eee;
+  width: 100%;
+  max-width: initial;
+  margin-bottom: 25px;
+}
