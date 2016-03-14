@@ -1,1 +1,9 @@
+.DS_Store
+bower_components
+node_modules
+npm-debug.log
+bower.json
+gulpfile.js
+package.json
+project.json
 .idea
