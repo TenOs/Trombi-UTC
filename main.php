@@ -27,6 +27,10 @@
     var _debug = true;
     var ajaxCalls = new Array();
 
+    $( document ).ready(function() {
+        $("#searchField").first().focus();
+    });
+
     $('#searchField').on('input', function (e) {
         cancelAjaxCalls();
         var text = $('#searchField').val();
