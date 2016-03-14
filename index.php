@@ -1,83 +1,18 @@
-<!doctype html>
-<html class="no-js" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LE Trombi</title>
-    <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" href="foundation-icons/foundation-icons.css">
-    <script src="js/jquery-2.2.1.min.js"></script>
-</head>
-<body>
-<div class="row vertical-center" id="row_search">
-    <div class="small-12 column" id="column_logo">
-        <img src="images/TrombiUTC.png">
-    </div>
-    <div class="small-12 column" id="column_search">
-        <input id="searchField" type="text" placeholder="Search someone"/>
-    </div>
-</div>
-<div class="row" id="row_result">
-    <div class="small-12">
-    </div>
-</div>
+<?php
+session_save_path('sess');
+session_start();
 
-<script type="text/javascript">
-    var _debug = true;
-    var ajaxCalls = new Array();
+require_once 'incl/CAS.class.php';
 
-    $('#searchField').on('input', function (e) {
-        cancelAjaxCalls();
-        var text = $('#searchField').val();
-        if (text.length > 2) {
-            var ajaxCall = $.ajax({
-                    url: 'result.php',
-                    data: {name: text}
-                })
-                .done(function (data) {
-                    debug("done");
-                    $('#row_result').html(data);
-                })
-                .fail(function () {
-                    debug("error");
-                })
-                .always(function () {
-                    debug("complete");
-                    ajaxCalls.slice(ajaxCalls.indexOf(ajaxCall));
-                });
-            ajaxCalls.push(ajaxCall);
-
-            $('#row_search').removeClass("vertical-center");
-            $('#row_search').addClass("top-search");
-            $('#column_logo').removeClass("small-12");
-            $('#column_logo').addClass("small-5");
-            $('#column_logo').addClass("medium-3");
-            $('#column_logo').addClass("large-2");
-            $('#column_search').removeClass("small-12");
-            $('#column_search').addClass("small-7");
-            $('#column_search').addClass("medium-9");
-            $('#column_search').addClass("large-10");
-        }else
-            $("#row_result").html('');
-    });
-
-
-    function cancelAjaxCalls() {
-        debug("Cancelling all ajax calls...");
-        debug(ajaxCalls);
-        ajaxCalls.forEach(function (a) {
-            a.abort();
-            ajaxCalls.slice(ajaxCalls.indexOf(a),1);
-        });
-
+if (isset($_SESSION['user'])) require_once 'main.php';
+else
+{
+    $user = CAS::authenticate();
+    if ($user != -1)
+    {
+        $_SESSION['user'] = $user;
+        $_SESSION['ticket'] = $_GET['ticket'];
+        header('Location: ./');
     }
-
-    function debug(msg) {
-        if (_debug) {
-            console.log(msg);
-        }
-    }
-</script>
-</body>
-</html>
+    else CAS::login();
+}
