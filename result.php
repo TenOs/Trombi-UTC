@@ -2,7 +2,8 @@
 
 require_once 'config.php';
 
-$results = json_decode(file_get_contents(SEARCH_URL.$_GET['name']));
+$name = str_replace(" ", "+", $_GET['name']);
+$results = json_decode(file_get_contents(SEARCH_URL.$name));
 
 
 if (empty($results)) { ?>
