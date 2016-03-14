@@ -7,6 +7,9 @@
     <title>LE Trombi</title>
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="foundation-icons/foundation-icons.css">
+    <link rel="icon"
+          type="image/png"
+          href="favicon.ico">
     <script src="js/jquery-2.2.1.min.js"></script>
 </head>
 <body>
