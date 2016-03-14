@@ -38,12 +38,15 @@
         cancelAjaxCalls();
         var text = $('#searchField').val();
         if (text.length > 2) {
+            $("#row_result").html('');
+            $("#row_result").addClass("loading");
             var ajaxCall = $.ajax({
                     url: 'result.php',
                     data: {name: text}
                 })
                 .done(function (data) {
                     debug("done for: " + text);
+                    $("#row_result").removeClass("loading");
                     $('#row_result').html(data);
                 })
                 .fail(function () {
