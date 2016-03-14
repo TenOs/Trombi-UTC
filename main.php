@@ -68,8 +68,10 @@
             $('#column_search').addClass("small-7");
             $('#column_search').addClass("medium-9");
             $('#column_search').addClass("large-10");
-        }else
+        }else {
             $("#row_result").html('');
+            $("#row_result").removeClass('loading');
+        }
     });
 
 
