@@ -29,6 +29,7 @@
 <script type="text/javascript">
     var _debug = true;
     var ajaxCalls = new Array();
+    var resultDisplayed = false;
 
     $( document ).ready(function() {
         $("#searchField").first().focus();
@@ -58,6 +59,18 @@
                 });
             ajaxCalls.push(ajaxCall);
 
+            displayResult();
+
+
+        }else {
+            $("#row_result").html('');
+            $("#row_result").removeClass('loading');
+        }
+    });
+
+    function displayResult() {
+        if (!resultDisplayed)
+        {
             $('#row_search').removeClass("vertical-center");
             $('#row_search').addClass("top-search");
             $('#column_logo').removeClass("small-12");
@@ -68,12 +81,11 @@
             $('#column_search').addClass("small-7");
             $('#column_search').addClass("medium-9");
             $('#column_search').addClass("large-10");
-        }else {
-            $("#row_result").html('');
-            $("#row_result").removeClass('loading');
+            $('#column_logo').html('<a href="<?= SITE_URL ?>">' + $('#column_logo').html() + '</a>');
+            resultDisplayed = true;
         }
-    });
 
+    }
 
     function cancelAjaxCalls() {
         debug("Cancelling all ajax calls...");
