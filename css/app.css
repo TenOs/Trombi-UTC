@@ -3679,6 +3679,9 @@ table.hover tr:nth-of-type(even):hover {
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%); }
 
+.advanced_search_text {
+  text-align: center; }
+
 .top-search {
   background-color: #eee;
   width: 100%;

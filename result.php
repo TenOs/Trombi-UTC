@@ -2,8 +2,12 @@
 
 require_once 'config.php';
 
-$name = str_replace(" ", "+", $_GET['name']);
-$results = json_decode(file_get_contents(SEARCH_URL.$name));
+$name = (!empty($_GET['name']) ? str_replace(" ", "+", $_GET['name']) : '');
+$url = SEARCH_URL. $name;
+$url .= (!empty($_GET['struct']) ? '&struct=' . $_GET['struct'] : '');
+$url .= (!empty($_GET['sstruct']) ? '&sstruct=' . $_GET['sstruct'] : '');
+
+$results = json_decode(file_get_contents($url));
 
 
 if (empty($results)) { ?>
