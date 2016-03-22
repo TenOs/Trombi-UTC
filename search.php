@@ -40,7 +40,7 @@ foreach ($results as $r) {
         if ($r->autorisation == "O")
             $r->photo = PHOTO_API_URL.$r->login;
         else
-            $r->photo = 'images/profile-photo.jpg';
+            $r->photo = SITE_URL .'images/profile-photo.jpg';
         $final_results[$r->login] = $r;
     }
 }
