@@ -38,7 +38,7 @@ $structures = json_decode(file_get_contents(STRUCTURE_API_URL));
                     <option value="">Structure</option>
                     <?php
                     foreach ($structures as $struct) {
-                        echo '<option value="' . $struct->structNomId .'">' . $struct->structureLibelle . '</option>';
+                        echo '<option value="' . $struct->structure->structId .'">' . $struct->structureLibelle . '</option>';
                     }
                     ?>
                 </select>
@@ -82,7 +82,7 @@ $structures = json_decode(file_get_contents(STRUCTURE_API_URL));
                 debug("done sous-structure with data: " + data);
                 var html = '<option value="">Sous-Structure</option>';
                 data.forEach(function(elt) {
-                   html += '<option value="'+ elt.structNomId +'">'+ elt.structureLibelle +'</option>';
+                   html += '<option value="'+ elt.structure.structId +'">'+ elt.structureLibelle +'</option>';
                 });
                 $('#combo_sous_structure').html(html);
             })
