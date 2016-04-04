@@ -1,14 +1,14 @@
 Trombi UTC (SR03 project)
 =========================
 
-Last edit: March 16, 2016
+Last edit: April 4, 2016
 
 What is it ?
 ------------
 
-Trombi UTC is Trombinoscope of all students and employees of the University of Technology of Compiègne (UTC). It has been developed for the SR03 (Architecture of the Internet Applications) class of spring 2016.
+Trombi UTC is a Trombinoscope of all students and employees of the University of Technology of Compiègne (UTC). It has been developed for the SR03 (Architecture of the Internet Applications) class of spring 2016.
 
-The back-end has been developed in PHP and the front-end has been designed with [Foundation](http://foundation.zurb.com/) and [JQuery](https://jquery.com/).
+The back-end has been developed in [PHP](https://secure.php.net/) and the front-end has been designed with [Foundation](http://foundation.zurb.com/) and [JQuery](https://jquery.com/).
 
 
 Dependencies
