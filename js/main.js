@@ -97,7 +97,7 @@ function displayResult() {
         $('#column_search').addClass("small-7");
         $('#column_search').addClass("medium-9");
         $('#column_search').addClass("large-10");
-        $('#column_logo').html('<a href="<?= SITE_URL ?>">' + $('#column_logo').html() + '</a>');
+        $('#column_logo').html('<a href="' + SITE_URL + '">' + $('#column_logo').html() + '</a>');
         resultDisplayed = true;
     }
 }

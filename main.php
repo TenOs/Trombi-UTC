@@ -58,6 +58,9 @@ $structures = json_decode(file_get_contents(STRUCTURE_API_URL));
     </div>
 </div>
 
+<script>
+    var SITE_URL = "<?= SITE_URL ?>";
+</script>
 <script src="js/main.js"></script>
 </body>
 </html>
